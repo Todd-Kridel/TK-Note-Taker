@@ -25,8 +25,7 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-const getNotes = () =>
-  fetch("/api/notes", {
+const getNotes = () => fetch("/api/notes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
