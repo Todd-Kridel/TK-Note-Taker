@@ -2,10 +2,10 @@
   "name": "tk-note-taker",
   "version": "1.0.0",
   "description": "an application that is for creating and posting simple task notes",
-  "main": "/index.html",
+  "main": "./public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1", 
-    "start": "/assets/js/index.js"
+    "start": "./public/index.js"
   },
   "repository": {
     "type": "git",
