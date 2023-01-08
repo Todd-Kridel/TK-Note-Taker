@@ -1,0 +1,22 @@
+{
+  "name": "tk-note-taker",
+  "version": "1.0.0",
+  "description": "an application that is for creating and posting simple task notes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Todd-Kridel/TK-Note-Taker.git"
+  },
+  "author": "Todd Kridel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Todd-Kridel/TK-Note-Taker/issues"
+  },
+  "homepage": "https://github.com/Todd-Kridel/TK-Note-Taker#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
