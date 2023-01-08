@@ -136,7 +136,7 @@ app.delete("*", (req, res) => {
 });
 
 
-async function doReadFromTheDBFile() {
+function doReadFromTheDBFile() {
 // Read from the note database file.
 
 // synchronous option
