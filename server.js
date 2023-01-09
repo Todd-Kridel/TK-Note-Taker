@@ -27,6 +27,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+// a route to allow for the loading of the "favicon.ico" file
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
+});
+
 app.get("/index", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
@@ -35,6 +40,11 @@ app.get("/index/html", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+app.get("/public", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+  // console.info(`${req.method} request received to get notes`);
+  // res.json(`${req.method} request received to get notes`);
+});
 app.get("/public/index", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
   // console.info(`${req.method} request received to get notes`);
@@ -58,6 +68,11 @@ app.get("/notes.html", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
+// a route to allow for the loading of the "favicon.ico" file
+app.get("/public/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
+});
+
 app.get("/public/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
   // console.info(`${req.method} request received to get notes`);
@@ -70,22 +85,6 @@ app.get("/public/notes.html", (req, res) => {
   // res.json(`${req.method} request received to get notes`);
 });
 
-app.get("/public", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
-  // console.info(`${req.method} request received to get notes`);
-  // res.json(`${req.method} request received to get notes`);
-});
-
-// a route to allow for the loading of the "favicon.ico" file
-app.get("/favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
-});
-
-// a route to allow for the loading of the "favicon.ico" file
-app.get("/public/favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
-});
-
 // a route to allow for the loading of the "/assets/js/index.js" file
 app.get("/assets/js/index.js", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/assets/js/index.js"));
@@ -93,6 +92,11 @@ app.get("/assets/js/index.js", (req, res) => {
 
 // a route to allow for the loading of the "/assets/css/styles.css" file
 app.get("/assets/css/styles.css", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"));
+});
+
+// a route to allow for the loading of the "/assets/css/styles.css" file
+app.get("/public/assets/css/styles.css", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"));
 });
 
