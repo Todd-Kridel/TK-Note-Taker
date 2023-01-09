@@ -121,7 +121,7 @@ const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
   console.log(note);
-  activeNote = (e.target.parentElement).data-note;  // getAttribute("li.dataset.note")
+  activeNote = (e.target.parentElement).getAttribute("dataset.note")
   console.log(activeNote);
   renderActiveNote();
 };
