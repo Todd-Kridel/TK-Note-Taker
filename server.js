@@ -32,8 +32,8 @@ app.get("/index", (req, res) => {
 });
 
 // a route to allow for the loading of the "notes.html" file
-app.get("notes.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "notes.html"));
+app.get("/notes.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "/notes.html"));
 });
 
 // GET /notes should return the notes.html file.
@@ -55,8 +55,8 @@ app.get("/public/index", (req, res) => {
 });
 
 // a route to allow for the loading of the "favicon.ico" file
-app.get("favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "favicon.ico"));
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "/favicon.ico"));
 });
 
 // a route to allow for the loading of the "/assets/js/index.js" file
