@@ -7,7 +7,8 @@ let noteList;
 let sampleReturnData = 
 [
   {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}, 
-  {id: 2, noteTitle: "Test Title 2", noteText: "Test text 2"}
+  {id: 2, noteTitle: "Test Title 2", noteText: "Test text 2"}, 
+  {id: 3, noteTitle: "Test Title 3", noteText: "Test text 3"}
 ]
 
 if (window.location.pathname === "/notes") {
@@ -49,7 +50,7 @@ const getNotes = () => {
      },
     }).then(function (response) {
       if (response.status === 400) {
-        console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS. RE-CHECK THE SUBMISSION DATA AND SUBMIT AGAIN AT A LATER TIME." + "\n" +  
+        console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS." + "\n" +  
           "RELATED INFORMATION (IF ANY): " + response.status + "\n");
           console.log(response);
           // If a fetch/response error occurs...then do not do the data parsing process.
@@ -150,17 +151,14 @@ const handleRenderSaveBtn = () => {
 //    let jsonNotes = (await notes.json());
 
 //TEST
-//resolve, reject
 async function renderNoteList(notes) {
-  console.log("renderNoteList function call 1: " + "\n" + notes[0]);
-  console.log("renderNoteList function call 2: " + "\n" + typeof notes);
-  console.log("renderNoteList function call 3: " + "\n" + notes.constructor.name);
   let jsonNotes = (await notes);
-  console.log(jsonNotes[0].noteTitle);
+  //console.log(jsonNotes[0].noteTitle);
 //END TEST
 
-  if (window.location.pathname === "/notes") {
-    noteList.forEach((el) => (el.innerHTML = ""));
+  //if (window.location.pathname === "/notes") {
+  if ((window.location.pathname).includes("/notes")) {
+  noteList.forEach((el) => (el.innerHTML = ""));
   }
 
   let noteListItems = [];
