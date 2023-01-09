@@ -12,7 +12,7 @@ let sampleReturnData =
   {"id": 3, "noteTitle": "Test Title 3", "noteText": "Test text 3"}
 ];
 
-if (window.location.pathname === "/public/notes.html") {
+if (window.location.pathname == "/public/notes.html") {
   noteTitle = document.querySelector(".note-title");
   noteText = document.querySelector(".note-textarea");
   saveNoteButton = document.querySelector(".save-note");
@@ -40,7 +40,7 @@ const getNotes = () => {
        "Content-Type": "application/json",
      },
     }).then(function (response) {
-      if (response.status === 400) {
+      if (response.status == 400) {
         console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS." + "\n" +  
           "RELATED INFORMATION (IF ANY): " + response.status + "\n");
           console.log(response);
@@ -110,7 +110,7 @@ const handleNoteDelete = (e) => {
   activeNote = JSON.parse((note.parentElement).getAttribute("data-note"));
   const noteId = JSON.parse((note.parentElement).getAttribute("data-note")).id;
   console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
-  if (activeNote.id === noteId) {
+  if (activeNote.id == noteId) {
     activeNote = {};
   }
   deleteNote(noteId).then(() => {
@@ -148,7 +148,7 @@ const handleRenderSaveButton = () => {
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 //console.log(window.location.pathname);
-if (window.location.pathname === "/public/notes.html") {
+if (window.location.pathname == "/public/notes.html") {
   console.log(jsonNotes);
   //
   // a sub-function that returns a note HTML list-item element with or without a delete button
@@ -179,7 +179,7 @@ if (window.location.pathname === "/public/notes.html") {
   let noteListItems = [];
   //
   // Mark any empty note list.
-  if (jsonNotes.length === 0) {
+  if (jsonNotes.length == 0) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
@@ -200,7 +200,7 @@ if (window.location.pathname === "/public/notes.html") {
 }
 }
 
-if (window.location.pathname === "/public/notes.html") {
+if (window.location.pathname == "/public/notes.html") {
   saveNoteButton.addEventListener("click", handleNoteSave);
   newNoteButton.addEventListener("click", handleNewNoteView);
   noteTitle.addEventListener("keyup", handleRenderSaveButton);
