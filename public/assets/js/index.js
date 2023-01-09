@@ -48,7 +48,9 @@ const getNotes = () => {
      },
    }).then(function (response) {
     console.log("getNotes function call: " + "\n" + response[0]);
-    renderNoteList(response)});
+    console.log("renderNoteList function call: " + "\n" + typeof response);
+    console.log("renderNoteList function call: " + "\n" + response.constructor.name);
+    renderNoteList(response.json())});
  }
 
 const saveNote = (note) =>
@@ -138,7 +140,9 @@ const handleRenderSaveBtn = () => {
 //const renderNoteList = async (notes) => {
 async function renderNoteList(notes) {
   console.log("renderNoteList function call: " + "\n" + notes[0]);
-  let jsonNotes = JSON.parse(await notes.json());
+  console.log("renderNoteList function call: " + "\n" + typeof notes);
+  console.log("renderNoteList function call: " + "\n" + notes.constructor.name);
+  let jsonNotes = (await notes.json());
   //let jsonNotes = JSON.parse(await notes.json());
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
