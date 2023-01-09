@@ -154,7 +154,7 @@ const handleRenderSaveBtn = () => {
 
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
-console.log(indow.location.pathname);
+console.log(window.location.pathname);
 if (window.location.pathname === "/notes.html") {
   console.log("renderNoteList: " + "\n" + jsonNotes);
   //
