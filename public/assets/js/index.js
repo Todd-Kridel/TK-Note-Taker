@@ -50,7 +50,10 @@ const getNotes = () => {
     console.log("getNotes function call 1: " + "\n" + response[0]);
     console.log("getNotes function call 2: " + "\n" + typeof response);
     console.log("getNotes function call 3: " + "\n" + response.constructor.name);
-    renderNoteList(response.json())});
+    let responseJSON = response.json();
+    console.log(responseJSON[0].Title)
+    renderNoteList(responseJSON);
+  });
  }
 
 const saveNote = (note) =>
@@ -141,12 +144,12 @@ const handleRenderSaveBtn = () => {
 //    let jsonNotes = (await notes.json());
 
 //TEST
+//resolve, reject
 async function renderNoteList(notes) {
   console.log("renderNoteList function call 1: " + "\n" + notes[0]);
   console.log("renderNoteList function call 2: " + "\n" + typeof notes);
   console.log("renderNoteList function call 3: " + "\n" + notes.constructor.name);
   let jsonNotes = (await notes);
-  console.log(jsonNotes[0].title)
 //END TEST
 
   if (window.location.pathname === "/notes") {
