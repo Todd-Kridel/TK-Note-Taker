@@ -112,7 +112,7 @@ app.get("/public/assets/js/index.js", (req, res) => {
 app.get("/api/notes", (req, res) => {
   //res.json(noteData);
   doReadFromTheDBFile();  // for the synchronous read function
-  lastNoteID = ((theFileData[theFileData.length].id) + 1);  // for the synchronous read function
+  lastNoteID = ((theFileData[(theFileData.length) - 1].id));  // for the synchronous read function
   res.json(theFileData);  // for the synchronous read function
 });
 
