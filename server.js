@@ -70,6 +70,12 @@ app.get("/public/notes.html", (req, res) => {
   // res.json(`${req.method} request received to get notes`);
 });
 
+app.get("/public", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+  // console.info(`${req.method} request received to get notes`);
+  // res.json(`${req.method} request received to get notes`);
+});
+
 // a route to allow for the loading of the "favicon.ico" file
 app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/favicon.ico"));
