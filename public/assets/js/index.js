@@ -12,7 +12,7 @@ let sampleReturnData =
   {"id": 3, "noteTitle": "Test Title 3", "noteText": "Test text 3"}
 ]
 
-if (window.location.pathname === "/public/notes") {
+if (window.location.pathname === "/public/notes.html") {
   noteTitle = document.querySelector(".note-title");
   noteText = document.querySelector(".note-textarea");
   saveNoteBtn = document.querySelector(".save-note");
@@ -215,7 +215,7 @@ if (window.location.pathname === "/public/notes.html") {
 //  await getNotes().then(renderNoteList);
 //}
 
-if (window.location.pathname === "/public/notes") {
+if (window.location.pathname === "/public/notes.html") {
   saveNoteBtn.addEventListener("click", handleNoteSave);
   newNoteBtn.addEventListener("click", handleNewNoteView);
   noteTitle.addEventListener("keyup", handleRenderSaveBtn);
