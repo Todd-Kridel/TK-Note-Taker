@@ -33,7 +33,7 @@ app.get("/index", (req, res) => {
 
 // a route to allow for the loading of the "notes.html" file
 app.get("/notes.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "/notes.html"));
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 // GET /notes should return the notes.html file.
@@ -56,17 +56,17 @@ app.get("/public/index", (req, res) => {
 
 // a route to allow for the loading of the "favicon.ico" file
 app.get("/favicon.ico", (req, res) => {
-  res.sendFile(path.join(__dirname, "/favicon.ico"));
+  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
 });
 
 // a route to allow for the loading of the "/assets/js/index.js" file
 app.get("/assets/js/index.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "/assets/js/index.js"));
+  res.sendFile(path.join(__dirname, "/public/assets/js/index.js"));
 });
 
 // a route to allow for the loading of the "/assets/css/styles.css" file
 app.get("/assets/css/styles.css", (req, res) => {
-  res.sendFile(path.join(__dirname, "/assets/css/styles.css"));
+  res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"));
 });
 
 // The following API routes should be created:
