@@ -142,10 +142,11 @@ const handleRenderSaveBtn = () => {
 
 //TEST
 async function renderNoteList(notes) {
-  console.log("renderNoteList function call: " + "\n" + notes[0]);
-  console.log("renderNoteList function call: " + "\n" + typeof notes);
-  console.log("renderNoteList function call: " + "\n" + notes.constructor.name);
+  console.log("renderNoteList function call 1: " + "\n" + notes[0]);
+  console.log("renderNoteList function call 2: " + "\n" + typeof notes);
+  console.log("renderNoteList function call 3: " + "\n" + notes.constructor.name);
   let jsonNotes = (await notes);
+  console.log(jsonNotes[0].title)
 //END TEST
 
   if (window.location.pathname === "/notes") {
