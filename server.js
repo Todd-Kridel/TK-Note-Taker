@@ -197,8 +197,8 @@ function doReadFromTheDBFile() {
 // Read from the note database file.
 
 // synchronous option
-theFileData = JSON.parse(fs.readFileSync("./db/db.json")); 
-console.log(`Note data has been read from the Note database JSON file.`);
+theFileData = JSON.parse(fs.readFileSync("/db/db.json")); 
+console.log("Note data has been read from the Note database JSON file.");
 
 // asynchronous option
 // fs.readFile("./db/db.json", "utf-8", function (err, data) {
@@ -220,8 +220,8 @@ function doWriteToTheDBFile() {
 // Write to the note database file.
 
 // synchronous option
-fs.writeFileSync("./db/db.json", JSON.stringify(theFileData));
-console.log(`The Note database JSON file has been updated.`);
+fs.writeFileSync("/db/db.json", JSON.stringify(theFileData));
+console.log("The Note database JSON file has been updated.");
 
 // asynchronous option
 // fs.writeFile("./db/db.json", JSON.stringify(theFileData), function (err, data) {
