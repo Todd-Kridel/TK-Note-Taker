@@ -182,10 +182,11 @@ if (window.location.pathname === "/public/notes.html") {
     }
     return liEl;
   };
-  
+  //
+  let noteListItems = [];
+  //
   // Mark any empty note list.
   if (jsonNotes.length === 0) {
-    let noteListItems = [];
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
