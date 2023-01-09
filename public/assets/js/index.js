@@ -120,9 +120,10 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
-  console.log(note);
+  //console.log(note);
   activeNote = (e.target.parentElement).getAttribute("data-note")
-  console.log(activeNote);
+  //console.log(activeNote);
+  console.log(activeNote.id);
   renderActiveNote();
 };
 
