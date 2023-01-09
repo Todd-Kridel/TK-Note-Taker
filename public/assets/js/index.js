@@ -154,52 +154,53 @@ const handleRenderSaveBtn = () => {
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 console.log(window.location.pathname);
+console.log("noteList length: " + noteList[0].length);
 if (window.location.pathname === "/public/notes.html") {
   console.log(jsonNotes);
+  
+  // Mark any empty note list.
+  if (jsonNotes.length === 0) {
+    let noteListItems = [];
+    noteListItems.push(createLi("No saved Notes", false));
+  }
   //
-  // // Mark any empty note list.
-  // if (noteList.length === 0) {
-  //   let noteListItems = [];
-  //   noteListItems.push(createLi("No saved Notes", false));
-  // }
-  // //
-  // // Clear any existing note list.
-  // else if (noteList.length > 0) {
-  //   noteList.forEach((el) => (el.innerHTML = ""));
-  //   //
-  //   // Display the updated/current note list.
-  //   jsonNotes.forEach((note) => {
-  //     const li = createLi(note.title);
-  //     li.dataset.note = JSON.stringify(note);
-  //     noteListItems.push(li);
-  //   });
-  //   noteListItems.forEach((note) => noteList[0].append(note));
-  // }
-  // //
-  // // a sub-function that returns a note HTML list-item element with or without a delete button
-  // const createLi = (text, delBtn = true) => {
-  //   const liEl = document.createElement("li");
-  //   liEl.classList.add("list-group-item");
-  //   const spanEl = document.createElement("span");
-  //   spanEl.classList.add("list-item-title");
-  //   spanEl.innerText = text;
-  //   spanEl.addEventListener("click", handleNoteView);
-  //   liEl.append(spanEl);
-  //   //
-  //   if (delBtn) {
-  //     const delBtnEl = document.createElement("i");
-  //     delBtnEl.classList.add(
-  //       "fas",
-  //       "fa-trash-alt",
-  //       "float-right",
-  //       "text-danger",
-  //       "delete-note"
-  //     );
-  //     delBtnEl.addEventListener("click", handleNoteDelete);
-  //     liEl.append(delBtnEl);
-  //   }
-  //   return liEl;
-  // };
+  // Clear any existing note list.
+  else if (jsonNotes.length > 0) {
+    noteList.forEach((el) => (el.innerHTML = ""));
+    //
+    // Display the updated/current note list.
+    jsonNotes.forEach((note) => {
+      const li = createLi(note.title);
+      li.dataset.note = JSON.stringify(note);
+      noteListItems.push(li);
+    });
+    noteListItems.forEach((note) => noteList[0].append(note));
+  }
+  //
+  // a sub-function that returns a note HTML list-item element with or without a delete button
+  const createLi = (text, delBtn = true) => {
+    const liEl = document.createElement("li");
+    liEl.classList.add("list-group-item");
+    const spanEl = document.createElement("span");
+    spanEl.classList.add("list-item-title");
+    spanEl.innerText = text;
+    spanEl.addEventListener("click", handleNoteView);
+    liEl.append(spanEl);
+    //
+    if (delBtn) {
+      const delBtnEl = document.createElement("i");
+      delBtnEl.classList.add(
+        "fas",
+        "fa-trash-alt",
+        "float-right",
+        "text-danger",
+        "delete-note"
+      );
+      delBtnEl.addEventListener("click", handleNoteDelete);
+      liEl.append(delBtnEl);
+    }
+    return liEl;
+  };
 }
 }
 
