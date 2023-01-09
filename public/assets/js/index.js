@@ -47,9 +47,9 @@ const getNotes = () => {
        "Content-Type": "application/json",
      },
    }).then(function (response) {
-    console.log("getNotes function call: " + "\n" + response[0]);
-    console.log("getNotes function call: " + "\n" + typeof response);
-    console.log("getNotes function call: " + "\n" + response.constructor.name);
+    console.log("getNotes function call 1: " + "\n" + response[0]);
+    console.log("getNotes function call 2: " + "\n" + typeof response);
+    console.log("getNotes function call 3: " + "\n" + response.constructor.name);
     renderNoteList(response.json())});
  }
 
