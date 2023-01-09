@@ -31,9 +31,20 @@ app.get("/index", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
-// a route to allow for the loading of the "notes.html" file
-app.get("/notes.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+app.get("/index/html", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+app.get("/public/index", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+  // console.info(`${req.method} request received to get notes`);
+  // res.json(`${req.method} request received to get notes`);
+});
+
+app.get("/public/index.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+  // console.info(`${req.method} request received to get notes`);
+  // res.json(`${req.method} request received to get notes`);
 });
 
 // GET /notes should return the notes.html file.
@@ -42,14 +53,19 @@ app.get("/notes", (req, res) => {
   //res.sendFile(path.join(__dirname, "./public/notes.html"))
 });
 
+// a route to allow for the loading of the "notes.html" file
+app.get("/notes.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
+
 app.get("/public/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
   // console.info(`${req.method} request received to get notes`);
   // res.json(`${req.method} request received to get notes`);
 });
 
-app.get("/public/index", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+app.get("/public/notes.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
   // console.info(`${req.method} request received to get notes`);
   // res.json(`${req.method} request received to get notes`);
 });
