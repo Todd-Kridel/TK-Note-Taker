@@ -100,6 +100,11 @@ app.get("/public/assets/css/styles.css", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/assets/css/styles.css"));
 });
 
+// a route to allow for the loading of the "/assets/js/index.js" file
+app.get("/public/assets/js/index.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/assets/js/index.js"));
+});
+
 // The following API routes should be created:
 
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
@@ -113,9 +118,9 @@ app.get("/api/notes", (req, res) => {
 
 // GET request for any other URL paths -- a fallback route
 // GET * should return the index.html file.
-//app.get("*", (req, res) => {
-//  res.sendFile(path.join(__dirname, "/public/index.html"));
-//});
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
 // The following API routes should be created:
 
