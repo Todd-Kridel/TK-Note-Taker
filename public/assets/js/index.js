@@ -106,7 +106,7 @@ const handleNoteDelete = (e) => {
   // clicked.
   e.stopPropagation();
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute("dataset.note")).id;
+  const noteId = JSON.parse(note.parentElement.getAttribute("li.dataset.note")).id;
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -119,7 +119,7 @@ const handleNoteDelete = (e) => {
 // Set the "activeNote" variable and display it.
 const handleNoteView = (e) => {
   e.preventDefault();
-  activeNote = JSON.parse(e.target.parentElement.getAttribute("dataset.note"));
+  activeNote = JSON.parse(e.target.parentElement.getAttribute("li.dataset.note"));
   renderActiveNote();
 };
 
