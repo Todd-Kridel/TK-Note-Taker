@@ -200,7 +200,7 @@ if (window.location.pathname === "/public/notes.html") {
       li.dataset.note = JSON.stringify(note);
       noteListItems.push(li);
     });
-    noteListItems.forEach((note) => noteList.append(note));
+    noteListItems.forEach((note) => noteList[0].append(note));
   }
   //
 }
