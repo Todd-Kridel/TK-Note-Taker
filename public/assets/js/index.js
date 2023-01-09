@@ -47,13 +47,18 @@ const getNotes = () => {
      headers: {
        "Content-Type": "application/json",
      },
-   }).then(function (response) {
-    console.log("getNotes function call 1: " + "\n" + response[0]);
-    console.log("getNotes function call 2: " + "\n" + typeof response);
-    console.log("getNotes function call 3: " + "\n" + response.constructor.name);
-    let responseJSON = JSON.parse(response);
-    console.log(responseJSON[0]);
-    renderNoteList(responseJSON);
+    }).then(function (response) {
+      if (response.status === 400) {
+        console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS. RE-CHECK THE SUBMISSION DATA AND SUBMIT AGAIN AT A LATER TIME." + "\n" +  
+          "RELATED INFORMATION (IF ANY): " + response.status + "\n");
+          console.log(response);
+          // If a fetch/response error occurs...then do not do the data parsing process.
+          return;
+      }
+      return response.json();
+  }) .then(function(data) {
+    console.log("getNotes function call: " + "\n" + data);
+    renderNoteList(data);
   });
  }
 
