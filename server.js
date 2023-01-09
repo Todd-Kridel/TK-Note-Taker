@@ -81,6 +81,11 @@ app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/favicon.ico"));
 });
 
+// a route to allow for the loading of the "favicon.ico" file
+app.get("/public/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/favicon.ico"));
+});
+
 // a route to allow for the loading of the "/assets/js/index.js" file
 app.get("/assets/js/index.js", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/assets/js/index.js"));
@@ -206,17 +211,17 @@ function doWriteToTheDBFile() {
 // Write to the note database file.
 
 // synchronous option
-//fs.writeFileSync("./db/db.json", JSON.stringify(theFileData));
-//console.log(`The Note database JSON file has been updated.`);
+fs.writeFileSync("./db/db.json", JSON.stringify(theFileData));
+console.log(`The Note database JSON file has been updated.`);
 
 // asynchronous option
-fs.writeFile("./db/db.json", JSON.stringify(theFileData), function (err, data) {
-  if (err) {
-    throw err;
-  }
-  else {
-    console.log(`The Note database JSON file has been updated.`);
-  }
-});
+// fs.writeFile("./db/db.json", JSON.stringify(theFileData), function (err, data) {
+//   if (err) {
+//     throw err;
+//   }
+//   else {
+//     console.log(`The Note database JSON file has been updated.`);
+//   }
+// });
 }
 
