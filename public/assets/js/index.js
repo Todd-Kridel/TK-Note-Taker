@@ -118,12 +118,14 @@ const handleNoteDelete = (e) => {
 
 // Set the "activeNote" variable and display it.
 const handleNoteView = (e) => {
+  const note = e.target;
   e.preventDefault();
-  activeNote = JSON.parse(e.target.parentElement.getAttribute("li.dataset.note")).id;
+  activeNote = JSON.parse(note.parentElement.getAttribute("li.dataset.note"));
+  console.log(activeNote);
   renderActiveNote();
 };
 
-// Set the "activeNote" variable to and empty object and allows the user to enter a new note.
+// Set the "activeNote" variable to an empty object and allows the user to enter a new note.
 const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
