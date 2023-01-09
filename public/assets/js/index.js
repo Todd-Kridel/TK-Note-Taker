@@ -38,6 +38,7 @@ const getNotes = () => {
       "Content-Type": "application/json",
     },
   }); 
+  return sampleReturnData;
 }
 
 const saveNote = (note) =>
@@ -124,7 +125,7 @@ const handleRenderSaveBtn = () => {
 };
 
 // Render the list of note titles
-const renderNoteList = async (notes) => {
+const renderNoteList = async (sampleReturnData) => {
   let jsonNotes = await notes.json();
   //let jsonNotes = JSON.parse(await notes.json());
   if (window.location.pathname === "/notes") {
@@ -181,7 +182,7 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
   console.log(sampleReturnData);
-  getNotes().then(renderNoteList(sampleReturnData));
+  getNotes().then(renderNoteList);
 }
 
 if (window.location.pathname === "/notes") {
