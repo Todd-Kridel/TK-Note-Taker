@@ -48,8 +48,8 @@ const getNotes = () => {
      },
    }).then(function (response) {
     console.log("getNotes function call: " + "\n" + response[0]);
-    console.log("renderNoteList function call: " + "\n" + typeof response);
-    console.log("renderNoteList function call: " + "\n" + response.constructor.name);
+    console.log("getNotes function call: " + "\n" + typeof response);
+    console.log("getNotes function call: " + "\n" + response.constructor.name);
     renderNoteList(response.json())});
  }
 
@@ -138,12 +138,16 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 //const renderNoteList = async (notes) => {
+//    let jsonNotes = (await notes.json());
+
+//TEST
 async function renderNoteList(notes) {
   console.log("renderNoteList function call: " + "\n" + notes[0]);
   console.log("renderNoteList function call: " + "\n" + typeof notes);
   console.log("renderNoteList function call: " + "\n" + notes.constructor.name);
-  let jsonNotes = (await notes.json());
-  //let jsonNotes = JSON.parse(await notes.json());
+  let jsonNotes = (await notes);
+//END TEST
+
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
