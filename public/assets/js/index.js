@@ -47,6 +47,7 @@ const getNotes = () => {
        "Content-Type": "application/json",
      },
    }).then(function (response) {
+    console.log("getNotes function call: " + "\n" + response);
     renderNoteList(response)});
  }
 
@@ -136,6 +137,7 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 //const renderNoteList = async (notes) => {
 async function renderNoteList(notes) {
+  console.log("renderNoteList function call: " + "\n" + notes);
   let jsonNotes = await notes.json();
   //let jsonNotes = JSON.parse(await notes.json());
   if (window.location.pathname === "/notes") {
