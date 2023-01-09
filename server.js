@@ -62,9 +62,9 @@ app.get("/api/notes", (req, res) => {
 
 // GET request for any other URL paths -- a fallback route
 // GET * should return the index.html file.
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
-});
+//app.get("*", (req, res) => {
+//  res.sendFile(path.join(__dirname, "/public/index.html"));
+//});
 
 // The following API routes should be created:
 
