@@ -5,7 +5,7 @@ let newNoteBtn;
 let noteList;
 let sampleReturnData = 
 [
-  {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}
+  {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}, 
   {id: 2, noteTitle: "Test Title 2", noteText: "Test text 2"}
 ]
 
