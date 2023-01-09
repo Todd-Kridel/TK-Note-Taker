@@ -157,28 +157,9 @@ console.log(window.location.pathname);
 console.log("noteList length: " + noteList.length);
 if (window.location.pathname === "/public/notes.html") {
   console.log(jsonNotes);
-  
-  // Mark any empty note list.
-  if (jsonNotes.length === 0) {
-    let noteListItems = [];
-    noteListItems.push(createLi("No saved Notes", false));
-  }
-  //
-  // Clear any existing note list.
-  else if (jsonNotes.length > 0) {
-    noteList.forEach((el) => (el.innerHTML = ""));
-    //
-    // Display the updated/current note list.
-    jsonNotes.forEach((note) => {
-      const li = createLi(note.title);
-      li.dataset.note = JSON.stringify(note);
-      noteListItems.push(li);
-    });
-    noteListItems.forEach((note) => noteList.append(note));
-  }
-  //
+
   // a sub-function that returns a note HTML list-item element with or without a delete button
-  const createLi = (text, delBtn = true) => {
+  function createLi(text, delBtn = true) {
     const liEl = document.createElement("li");
     liEl.classList.add("list-group-item");
     const spanEl = document.createElement("span");
@@ -201,6 +182,26 @@ if (window.location.pathname === "/public/notes.html") {
     }
     return liEl;
   };
+  
+  // Mark any empty note list.
+  if (jsonNotes.length === 0) {
+    let noteListItems = [];
+    noteListItems.push(createLi("No saved Notes", false));
+  }
+  //
+  // Clear any existing note list.
+  else if (jsonNotes.length > 0) {
+    noteList.forEach((el) => (el.innerHTML = ""));
+    //
+    // Display the updated/current note list.
+    jsonNotes.forEach((note) => {
+      const li = createLi(note.title);
+      li.dataset.note = JSON.stringify(note);
+      noteListItems.push(li);
+    });
+    noteListItems.forEach((note) => noteList.append(note));
+  }
+  //
 }
 }
 
