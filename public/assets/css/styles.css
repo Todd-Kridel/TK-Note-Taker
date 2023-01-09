@@ -62,7 +62,7 @@ body {
 
 .list-item-title {
   display: inline-block;
-  width: 75%;
+  width: 95%;
 }
 
 .list-container i {
@@ -73,6 +73,6 @@ body {
 .list-container .list-group-item {
   border-left: none;
   border-right: none;
-  padding: 20px;
+  padding: 10px;
   cursor: pointer;
 }
