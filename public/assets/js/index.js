@@ -76,8 +76,8 @@ const renderActiveNote = () => {
   if (activeNote.id) {
     noteTitle.setAttribute("readonly", true);
     noteText.setAttribute("readonly", true);
-    noteTitle.value = activeNote.title;
-    noteText.value = activeNote.text;
+    noteTitle.value = activeNote.noteTitle;
+    noteText.value = activeNote.noteText;
   } else {
     noteTitle.removeAttribute("readonly");
     noteText.removeAttribute("readonly");
@@ -106,7 +106,7 @@ const handleNoteDelete = (e) => {
   // clicked.
   e.stopPropagation();
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute("li.dataset.note")).id;
+  const noteId = JSON.parse((note.parentElement).getAttribute("data-note")).id;
   if (activeNote.id === noteId) {
     activeNote = {};
   }
@@ -121,9 +121,9 @@ const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
   //console.log(note);
-  activeNote = JSON.parse((e.target.parentElement).getAttribute("data-note"))
+  activeNote = JSON.parse((note.parentElement).getAttribute("data-note"));
   //console.log(activeNote);
-  console.log(activeNote.id);
+  //console.log(activeNote.id);
   renderActiveNote();
 };
 
