@@ -107,7 +107,7 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
   const note = e.target;
   console.log(activeNote);
-  activeNote = JSON.parse((note.parentElement).getAttribute("data-note"));
+  activeNote = ((note.parentElement).getAttribute("data-note"));
   const noteId = JSON.parse((note.parentElement).getAttribute("data-note")).id;
   if (activeNote.id === noteId) {
     activeNote = {};
@@ -147,7 +147,7 @@ const handleRenderSaveButton = () => {
 // Render the list of note titles.
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
-console.log(window.location.pathname);
+//console.log(window.location.pathname);
 if (window.location.pathname === "/public/notes.html") {
   console.log(jsonNotes);
   //
