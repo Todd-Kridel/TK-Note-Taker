@@ -31,13 +31,12 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () => {
- console.log("getNotes call");
  fetch("/api/notes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-  }); 
+  });
 }
 
 const saveNote = (note) =>
@@ -124,7 +123,7 @@ const handleRenderSaveBtn = () => {
 };
 
 // Render the list of note titles
-const renderNoteList = async (sampleReturnData) => {
+const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   //let jsonNotes = JSON.parse(await notes.json());
   if (window.location.pathname === "/notes") {
@@ -179,9 +178,8 @@ const renderNoteList = async (sampleReturnData) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => {
-  console.log(sampleReturnData);
-  getNotes().then(renderNoteList);
+const getAndRenderNotes = async () => {
+  await getNotes().then(renderNoteList);
 }
 
 if (window.location.pathname === "/notes") {
