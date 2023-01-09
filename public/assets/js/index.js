@@ -154,7 +154,7 @@ const handleRenderSaveBtn = () => {
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 console.log(window.location.pathname);
-console.log("noteList length: " + noteList[0].length);
+console.log("noteList length: " + noteList.length);
 if (window.location.pathname === "/public/notes.html") {
   console.log(jsonNotes);
   
@@ -174,7 +174,7 @@ if (window.location.pathname === "/public/notes.html") {
       li.dataset.note = JSON.stringify(note);
       noteListItems.push(li);
     });
-    noteListItems.forEach((note) => noteList[0].append(note));
+    noteListItems.forEach((note) => noteList.append(note));
   }
   //
   // a sub-function that returns a note HTML list-item element with or without a delete button
