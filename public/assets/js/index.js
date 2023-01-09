@@ -152,7 +152,7 @@ const handleRenderSaveBtn = () => {
 //    let jsonNotes = (await notes.json());
 
 async function renderNoteList(notes) {
-let jsonNotes = JSON.stringify(await (notes));
+let jsonNotes = await (notes);
 console.log(window.location.pathname);
 console.log("noteList length: " + noteList.length);
 if (window.location.pathname === "/public/notes.html") {
@@ -196,8 +196,8 @@ if (window.location.pathname === "/public/notes.html") {
     //
     // Display the updated/current note list.
     jsonNotes.forEach((note) => {
-      const li = createLi(note.title);
-      li.dataset.note = note;
+      const li = createLi(note.noteTitle);
+      li.dataset.note = JSON.stringify(note);
       noteListItems.push(li);
     });
     noteListItems.forEach((note) => noteList[0].append(note));
