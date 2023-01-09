@@ -155,18 +155,18 @@ const handleRenderSaveBtn = () => {
 //TEST
 async function renderNoteList(notes) {
 let jsonNotes = (await notes);
-console.log("renderNoteList: " + "\n" + jsonNotes);
 //END TEST
 if (window.location.pathname === "/notes.html") {
+  console.log("renderNoteList: " + "\n" + jsonNotes);
   //
   // Mark any empty note list.
-  if (jsonNotes.length === 0) {
+  if (noteList.length === 0) {
     let noteListItems = [];
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
   // Clear any existing note list.
-  else if (jsonNotes.length > 0) {
+  else if (noteList.length < 0) {
     noteList.forEach((el) => (el.innerHTML = ""));
     //
     // Display the updated/current note list.
