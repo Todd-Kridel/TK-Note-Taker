@@ -38,7 +38,6 @@ const getNotes = () => {
       "Content-Type": "application/json",
     },
   }); 
-  return sampleReturnData;
 }
 
 const saveNote = (note) =>
