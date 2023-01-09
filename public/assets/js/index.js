@@ -121,8 +121,8 @@ const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
   console.log(note);
-  activeNote = JSON.parse(note.parentElement.getAttribute("li.dataset.note"));
-  console.log(activeNote);
+  activeNote = JSON.parse(note.parentElement);  // getAttribute("li.dataset.note")
+  console.log(note.getAttribute("li.dataset.note").id);
   renderActiveNote();
 };
 
@@ -188,6 +188,7 @@ if (window.location.pathname === "/public/notes.html") {
     jsonNotes.forEach((note) => {
       const li = createLi(note.noteTitle);
       li.dataset.note = JSON.stringify(note);
+      console.log(li.dataset.note);
       noteListItems.push(li);
     });
     noteListItems.forEach((note) => noteList[0].append(note));
