@@ -156,6 +156,7 @@ async function renderNoteList(notes) {
   console.log("renderNoteList function call 2: " + "\n" + typeof notes);
   console.log("renderNoteList function call 3: " + "\n" + notes.constructor.name);
   let jsonNotes = (await notes);
+  console.log(jsonNotes[0].noteTitle);
 //END TEST
 
   if (window.location.pathname === "/notes") {
