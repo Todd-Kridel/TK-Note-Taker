@@ -51,7 +51,8 @@ const getNotes = () => {
     console.log("getNotes function call 2: " + "\n" + typeof response);
     console.log("getNotes function call 3: " + "\n" + response.constructor.name);
     let responseJSON = response.json();
-    console.log(responseJSON[0].Title)
+    console.log(responseJSON[0]);
+    console.log(JSON.parse(responseJSON));
     renderNoteList(responseJSON);
   });
  }
