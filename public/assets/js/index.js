@@ -1,3 +1,5 @@
+const { json } = require("express");
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -6,9 +8,9 @@ let noteList;
 
 let sampleReturnData = 
 [
-  {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}, 
-  {id: 2, noteTitle: "Test Title 2", noteText: "Test text 2"}, 
-  {id: 3, noteTitle: "Test Title 3", noteText: "Test text 3"}
+  {"id": 1, "noteTitle": "Test Title 1", "noteText": "Test text 1"}, 
+  {"id": 2, "noteTitle": "Test Title 2", "noteText": "Test text 2"}, 
+  {"id": 3, "noteTitle": "Test Title 3", "noteText": "Test text 3"}
 ]
 
 if (window.location.pathname === "/notes") {
@@ -152,30 +154,41 @@ const handleRenderSaveBtn = () => {
 
 //TEST
 async function renderNoteList(notes) {
-  let jsonNotes = (await notes);
-  //console.log(jsonNotes[0].noteTitle);
-  console.log(jsonNotes);
+let jsonNotes = (await notes);
+//console.log(jsonNotes[0].noteTitle);
+console.log(jsonNotes);
 //END TEST
-
-  //if (window.location.pathname === "/notes") {
-  if ((window.location.pathname).includes("/notes")) {
-    noteList.forEach((el) => (el.innerHTML = ""));
+if (window.location.pathname === "/notes") {
+  //
+  // Mark any empty note list.
+  if (jsonNotes.length === 0) {
+    let noteListItems = [];
+    noteListItems.push(createLi("No saved Notes", false));
   }
-
-  let noteListItems = [];
-
-  // Returns HTML element with or without a delete button
+  //
+  // Clear any existing note list.
+  else if (jsonNotes.length > 0) {
+    noteList.forEach((el) => (el.innerHTML = ""));
+    //
+    // Display the updated/current note list.
+    jsonNotes.forEach((note) => {
+      const li = createLi(note.title);
+      li.dataset.note = JSON.stringify(note);
+      noteListItems.push(li);
+    });
+    noteListItems.forEach((note) => noteList[0].append(note));
+  }
+  //
+  // a sub-function that returns a note HTML list-item element with or without a delete button
   const createLi = (text, delBtn = true) => {
     const liEl = document.createElement("li");
     liEl.classList.add("list-group-item");
-
     const spanEl = document.createElement("span");
     spanEl.classList.add("list-item-title");
     spanEl.innerText = text;
     spanEl.addEventListener("click", handleNoteView);
-
     liEl.append(spanEl);
-
+    //
     if (delBtn) {
       const delBtnEl = document.createElement("i");
       delBtnEl.classList.add(
@@ -186,28 +199,12 @@ async function renderNoteList(notes) {
         "delete-note"
       );
       delBtnEl.addEventListener("click", handleNoteDelete);
-
       liEl.append(delBtnEl);
     }
-
     return liEl;
   };
-
-  if (jsonNotes.length === 0) {
-    noteListItems.push(createLi("No saved Notes", false));
-  }
-
-  jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
-    li.dataset.note = JSON.stringify(note);
-
-    noteListItems.push(li);
-  });
-
-  if (window.location.pathname === "/notes") {
-    noteListItems.forEach((note) => noteList[0].append(note));
-  }
-};
+}
+}
 
 // Gets notes from the db and renders them to the sidebar
 //const getAndRenderNotes = () => {
