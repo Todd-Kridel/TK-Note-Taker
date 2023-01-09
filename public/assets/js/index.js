@@ -193,8 +193,8 @@ if (window.location.pathname === "/public/notes.html") {
 if (window.location.pathname === "/public/notes.html") {
   saveNoteButton.addEventListener("click", handleNoteSave);
   newNoteButton.addEventListener("click", handleNewNoteView);
-  noteTitle.addEventListener("keyup", handleRenderSaveButton);
-  noteText.addEventListener("keyup", handleRenderSaveButton);
+  noteTitle.addEventListener("update", handleRenderSaveButton);
+  noteText.addEventListener("update", handleRenderSaveButton);
 }
 
 getNotes();
