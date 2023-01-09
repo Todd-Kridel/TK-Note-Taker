@@ -1,4 +1,3 @@
-//const { json } = require("express");
 
 let noteTitle;
 let noteText;
@@ -13,7 +12,7 @@ let sampleReturnData =
   {"id": 3, "noteTitle": "Test Title 3", "noteText": "Test text 3"}
 ]
 
-if (window.location.pathname === "/notes") {
+if (window.location.pathname === "/public/notes") {
   noteTitle = document.querySelector(".note-title");
   noteText = document.querySelector(".note-textarea");
   saveNoteBtn = document.querySelector(".save-note");
@@ -155,7 +154,7 @@ const handleRenderSaveBtn = () => {
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 console.log(window.location.pathname);
-if (window.location.pathname === "/notes.html") {
+if (window.location.pathname === "/public/notes.html") {
   console.log("renderNoteList: " + "\n" + jsonNotes);
   //
   // // Mark any empty note list.
@@ -215,7 +214,7 @@ if (window.location.pathname === "/notes.html") {
 //  await getNotes().then(renderNoteList);
 //}
 
-if (window.location.pathname === "/notes") {
+if (window.location.pathname === "/public/notes") {
   saveNoteBtn.addEventListener("click", handleNoteSave);
   newNoteBtn.addEventListener("click", handleNewNoteView);
   noteTitle.addEventListener("keyup", handleRenderSaveBtn);
