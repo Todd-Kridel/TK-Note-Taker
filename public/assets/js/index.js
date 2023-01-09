@@ -147,7 +147,6 @@ const handleRenderSaveButton = () => {
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 console.log(window.location.pathname);
-console.log("noteList length: " + noteList.length);
 if (window.location.pathname === "/public/notes.html") {
   console.log(jsonNotes);
   //
