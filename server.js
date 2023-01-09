@@ -31,6 +31,11 @@ app.get("/index", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+// a route to allow for the loading of the "notes.html" file
+app.get("notes.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "notes.html"));
+});
+
 // GET /notes should return the notes.html file.
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
@@ -47,6 +52,21 @@ app.get("/public/index", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
   // console.info(`${req.method} request received to get notes`);
   // res.json(`${req.method} request received to get notes`);
+});
+
+// a route to allow for the loading of the "favicon.ico" file
+app.get("favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "favicon.ico"));
+});
+
+// a route to allow for the loading of the "/assets/js/index.js" file
+app.get("/assets/js/index.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "/assets/js/index.js"));
+});
+
+// a route to allow for the loading of the "/assets/css/styles.css" file
+app.get("/assets/css/styles.css", (req, res) => {
+  res.sendFile(path.join(__dirname, "/assets/css/styles.css"));
 });
 
 // The following API routes should be created:
