@@ -155,7 +155,7 @@ async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 console.log(window.location.pathname);
 if (window.location.pathname === "/public/notes.html") {
-  console.log("renderNoteList: " + "\n" + jsonNotes);
+  console.log(jsonNotes);
   //
   // // Mark any empty note list.
   // if (noteList.length === 0) {
