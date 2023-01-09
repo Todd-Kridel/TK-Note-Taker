@@ -127,7 +127,7 @@ const handleNewNoteView = (e) => {
 };
 
 const handleRenderSaveButton = () => {
-  if ((!noteTitle.value.trim()) || (!noteText.value.trim())) {
+  if (((noteTitle.value.trim()) == "") && ((noteText.value.trim() == ""))) {
     hide(saveNoteButton);
   } else {
     show(saveNoteButton);
@@ -193,8 +193,8 @@ if (window.location.pathname === "/public/notes.html") {
 if (window.location.pathname === "/public/notes.html") {
   saveNoteButton.addEventListener("click", handleNoteSave);
   newNoteButton.addEventListener("click", handleNewNoteView);
-  noteTitle.addEventListener("keydown", handleRenderSaveButton);
-  noteText.addEventListener("keydown", handleRenderSaveButton);
+  noteTitle.addEventListener("keyup", handleRenderSaveButton);
+  noteText.addEventListener("keyup", handleRenderSaveButton);
 }
 
 getNotes();
