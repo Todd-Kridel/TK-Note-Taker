@@ -3,6 +3,7 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+
 let sampleReturnData = 
 [
   {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}, 
@@ -50,9 +51,8 @@ const getNotes = () => {
     console.log("getNotes function call 1: " + "\n" + response[0]);
     console.log("getNotes function call 2: " + "\n" + typeof response);
     console.log("getNotes function call 3: " + "\n" + response.constructor.name);
-    let responseJSON = response.json();
+    let responseJSON = JSON.parse(response);
     console.log(responseJSON[0]);
-    console.log(JSON.parse(responseJSON));
     renderNoteList(responseJSON);
   });
  }
