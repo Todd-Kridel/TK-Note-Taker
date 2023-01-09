@@ -3,6 +3,11 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+let sampleReturnData = 
+[
+  {id: 1, noteTitle: "Test Title 1", noteText: "Test text 1"}
+  {id: 2, noteTitle: "Test Title 2", noteText: "Test text 2"}
+]
 
 if (window.location.pathname === "/notes") {
   noteTitle = document.querySelector(".note-title");
@@ -32,7 +37,7 @@ const getNotes = () => {
     headers: {
       "Content-Type": "application/json",
     },
-  });
+  }); 
 }
 
 const saveNote = (note) =>
@@ -120,7 +125,8 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-  let jsonNotes = JSON.parse(await notes.json());
+  let jsonNotes = await notes.json();
+  //let jsonNotes = JSON.parse(await notes.json());
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
@@ -174,8 +180,7 @@ const renderNoteList = async (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
-  console.log("page load: getAndRenderNotes call");
-  getNotes().then(renderNoteList);
+  getNotes(sampleReturnData).then(renderNoteList);
 }
 
 if (window.location.pathname === "/notes") {
