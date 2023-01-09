@@ -60,7 +60,7 @@ const getNotes = () => {
       }
       return response.json();
   }) .then(function(data) {
-    console.log("getNotes function call: " + "\n" + data);
+    //console.log("getNotes function call: " + "\n" + data);
     renderNoteList(data);
   });
  }
@@ -155,10 +155,9 @@ const handleRenderSaveBtn = () => {
 //TEST
 async function renderNoteList(notes) {
 let jsonNotes = (await notes);
-//console.log(jsonNotes[0].noteTitle);
-console.log(jsonNotes);
+console.log("renderNoteList: " + "\n" + jsonNotes);
 //END TEST
-if (window.location.pathname === "/notes") {
+if (window.location.pathname === "/notes.html") {
   //
   // Mark any empty note list.
   if (jsonNotes.length === 0) {
