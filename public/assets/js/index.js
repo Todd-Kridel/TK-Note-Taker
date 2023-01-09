@@ -120,6 +120,7 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
+  console.log(note);
   activeNote = JSON.parse(note.parentElement.getAttribute("li.dataset.note"));
   console.log(activeNote);
   renderActiveNote();
