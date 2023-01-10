@@ -106,9 +106,10 @@ const handleNoteDelete = (e) => {
   console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
   if (activeNote.id == noteId) {
     if (noteListItems.length == 1) {
-      console.log("BROWSER: The last note item is going to be deleted.");
+      console.log("BROWSER: The last note is being deleted and being replaced with a '0' ID.");
       activeNote = {};
-      noteListItems = [];
+      //noteListItems = [];
+      noteListItems.pop();
     }
     else {
       activeNote = {};
@@ -180,7 +181,7 @@ if (window.location.pathname == "/public/notes.html") {
   noteListItems = [];
   //
   // Mark any empty note list.
-  if (jsonNotes.length == 0) {
+  if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //

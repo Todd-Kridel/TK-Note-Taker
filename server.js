@@ -169,8 +169,8 @@ for (let loopIndex = 0; loopIndex < theFileData.length; loopIndex++) {
       deleteNoteID + ")." + "\n" + deletionNote);
     aDeletionRecordWasFound = true;
     if ((loopIndex == 0) && (loopIndex == (theFileData.length - 1))) {
-      theFileData[0] = {"id": 0};
-      console.log("SERVER: There last note item is going to be deleted.");
+      theFileData[0] = {"id": 0, "noteTitle": "", "noteText": ""};
+      console.log("SERVER: The last note is being deleted and being replaced with a '0' ID.");
     }
     else {
       theFileData.splice(loopIndex, 1);
