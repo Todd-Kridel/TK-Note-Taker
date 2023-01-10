@@ -90,7 +90,8 @@ const handleNoteSave = () => {
   };
   saveNote(newNote).then(() => {
     getNotes();
-    //renderActiveNote();
+    renderActiveNote();
+    renderNoteList();
   });
 };
 
