@@ -112,7 +112,6 @@ app.get("/public/assets/js/index.js", (req, res) => {
 app.get("/api/notes", (req, res) => {
   //res.json(noteData);
   doReadFromTheDBFile();  // for the synchronous read function
-  lastNoteID = ((theFileData[(theFileData.length) - 1].id));  // for the synchronous read function
   res.json(theFileData);  // for the synchronous read function
 });
 
@@ -197,7 +196,8 @@ function doReadFromTheDBFile() {
 // Read from the note database file.
 
 // synchronous option
-theFileData = JSON.parse(fs.readFileSync("./db/db.json")); 
+theFileData = JSON.parse(fs.readFileSync("./db/db.json"));
+lastNoteID = ((theFileData[(theFileData.length) - 1].id));
 console.log("Note data has been read from the Note database JSON file.");
 
 // asynchronous option
@@ -221,6 +221,7 @@ function doWriteToTheDBFile() {
 
 // synchronous option
 fs.writeFileSync("./db/db.json", JSON.stringify(theFileData));
+lastNoteID = ((theFileData[(theFileData.length) - 1].id));
 console.log("The Note database JSON file has been updated.");
 
 // asynchronous option
