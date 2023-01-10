@@ -161,7 +161,7 @@ if (window.location.pathname == "/public/notes.html") {
     liElement.classList.add("list-group-item");
     const spanElement = document.createElement("span");
     spanElement.classList.add("list-item-title");
-    spanElement.innerHTML = text;
+    spanElement.textContent = text;
     if (deleteButton) {
       spanElement.addEventListener("click", handleNoteView);
     }
