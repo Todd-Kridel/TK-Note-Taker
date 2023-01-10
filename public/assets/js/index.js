@@ -161,7 +161,7 @@ if (window.location.pathname == "/public/notes.html") {
     liElement.classList.add("list-group-item");
     const spanElement = document.createElement("span");
     spanElement.classList.add("list-item-title");
-    spanElement.textContent = text;
+    spanElement.innerHTML = text;
     spanElement.addEventListener("click", handleNoteView);
     liElement.append(spanElement);
     //
@@ -186,11 +186,13 @@ if (window.location.pathname == "/public/notes.html") {
   console.log(jsonNotes.length + " " + jsonNotes[0].id);
   if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
     noteListItems.push(createLi("No saved notes.", false));
+    noteListItems[0].noteTitle = "No saved notes.";
+    activeNote.noteText = "";
   }
   //
   // Clear any existing note list.
   else if (jsonNotes.length > 0) {
-    noteList.forEach((el) => (el.innerHTML = ""));
+    noteList.forEach((element) => (element.innerHTML = ""));
     //
     // Display the updated/current note list.
     jsonNotes.forEach((note) => {
@@ -199,10 +201,6 @@ if (window.location.pathname == "/public/notes.html") {
         li.dataset.note = JSON.stringify(note);
         //console.log(li.dataset.note);
         noteListItems.push(li);
-      }
-      else {
-        activeNote.noteTitle = "No saved notes.";
-        activeNote.noteText = "";
       }
     });
     noteListItems.forEach((note) => noteList[0].append(note));
