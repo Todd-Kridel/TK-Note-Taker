@@ -74,14 +74,14 @@ app.get("/public/index.html", (req, res) => {
 
 // GET /notes should return the notes.html file.
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
   //res.sendFile(path.join(__dirname, "./public/notes.html"))
 });
 
 
 // a route to allow for the loading of the "notes.html" file
 app.get("/notes.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 
