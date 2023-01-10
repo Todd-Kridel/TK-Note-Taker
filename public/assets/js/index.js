@@ -162,7 +162,9 @@ if (window.location.pathname == "/public/notes.html") {
     const spanElement = document.createElement("span");
     spanElement.classList.add("list-item-title");
     spanElement.innerHTML = text;
-    spanElement.addEventListener("click", handleNoteView);
+    if (deleteButton) {
+      spanElement.addEventListener("click", handleNoteView);
+    }
     liElement.append(spanElement);
     //
     if (deleteButton) {
