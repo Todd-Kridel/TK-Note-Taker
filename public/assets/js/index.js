@@ -187,10 +187,10 @@ if (window.location.pathname == "/public/notes.html") {
   if (jsonNotes.length == 0) {
     noteListItems.push(createLi("No saved notes.", false));
   }
-  else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
-    jsonNotes[0].noteTitle = "No saved notes.";
-    jsonNotes[0].noteText = "";
-  }
+  // else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
+  //   jsonNotes[0].noteTitle = "No saved notes.";
+  //   jsonNotes[0].noteText = "";
+  // }
   //
   // Clear any existing note list.
   else if (jsonNotes.length > 0) {
