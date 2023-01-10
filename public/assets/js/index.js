@@ -183,8 +183,8 @@ if (window.location.pathname == "/public/notes.html") {
   // Mark any empty note list.
   jsonNotesParsed = jsonNotes;
   console.log(jsonNotes.length);
-  console.log(jsonNotesParsed);
-  if ((jsonNotes.length == 0) || ((jsonNotes.length == 0) && (jsonNotes.length == 0))) {
+  console.log(jsonNotes[0].id);
+  if ((jsonNotes.length == 0)) { //|| ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
