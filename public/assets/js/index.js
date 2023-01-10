@@ -4,13 +4,7 @@ let noteText;
 let saveNoteButton;
 let newNoteButton;
 let noteList;
-
-let sampleReturnData = 
-[
-  {"id": 1, "noteTitle": "Test Title 1", "noteText": "Test text 1"}, 
-  {"id": 2, "noteTitle": "Test Title 2", "noteText": "Test text 2"}, 
-  {"id": 3, "noteTitle": "Test Title 3", "noteText": "Test text 3"}
-];
+let noteListItems;
 
 if (window.location.pathname == "/public/notes.html") {
   noteTitle = document.querySelector(".note-title");
@@ -111,7 +105,12 @@ const handleNoteDelete = (e) => {
   const noteId = JSON.parse((note.parentElement).getAttribute("data-note")).id;
   console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
   if (activeNote.id == noteId) {
-    activeNote = {};
+    if (noteListItems.length == 1) {
+      noteListItems = [];
+    }
+    else {
+      activeNote = {};
+    }
   }
   deleteNote(noteId).then(() => {
     getNotes();
@@ -176,7 +175,7 @@ if (window.location.pathname == "/public/notes.html") {
     return liElement;
   };
   //
-  let noteListItems = [];
+  noteListItems = [];
   //
   // Mark any empty note list.
   if (jsonNotes.length == 0) {

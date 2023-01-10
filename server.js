@@ -168,7 +168,12 @@ for (let loopIndex = 0; loopIndex < theFileData.length; loopIndex++) {
     console.log("The indicated deletion record was found and deleted (ID = " + 
       deleteNoteID + ")." + "\n" + deletionNote);
     aDeletionRecordWasFound = true;
-    theFileData.splice(loopIndex, 1);
+    if ((loopIndex == 0) && (loopIndex == (theFileData.length - 1))) {
+      theFileData = [];
+    }
+    else {
+      theFileData.splice(loopIndex, 1);
+    }
     doWriteToTheDBFile();
   }
 }
