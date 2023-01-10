@@ -92,7 +92,7 @@ app.get("/public/favicon.ico", (req, res) => {
 
 
 app.get("/public/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
   // console.info(`${req.method} request received to get notes`);
   // res.json(`${req.method} request received to get notes`);
 });
