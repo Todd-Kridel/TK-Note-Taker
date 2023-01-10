@@ -106,6 +106,8 @@ const handleNoteDelete = (e) => {
   console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
   if (activeNote.id == noteId) {
     if (noteListItems.length == 1) {
+      console.log("The last note item is going to be deleted.");
+      activeNote = {};
       noteListItems = [];
     }
     else {
