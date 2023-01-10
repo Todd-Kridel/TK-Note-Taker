@@ -201,7 +201,8 @@ if (window.location.pathname == "/public/notes.html") {
         noteListItems.push(li);
       }
       else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
-        createLi("No saved notes.", false)
+        const li = createLi("No saved notes.", false);
+        noteListItems.push(li);
       }
     });
     noteListItems.forEach((note) => noteList[0].append(note));
