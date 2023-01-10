@@ -66,7 +66,7 @@ The following picture shows the appearance of the upgraded webpage:
 
 ![an example view of the appearance of the Note Taker application](./assets/images/Module_11_Mockup.jpg)
 
-The following URL is for the GitHub Pages published static-view public view of Todd Kridel's Coding Bootcamp Module Challenge assignment webpage...which shows only the non-server (non-backend) view of the application: "https://todd-kridel.github.io/TK-Note-Taker". The fully-functional front-end and back-end (with-server) version of the application is published at the Heroku application-hosting webpage system at URLs "https://tk-note-taker.herokuapp.com/public/index.html" "https://tk-note-taker.herokuapp.com/public/notes.html".
+The following URL is for the GitHub Pages published static-view public view of Todd Kridel's Coding Bootcamp Module Challenge assignment webpage...which shows only the non-server (non-backend) view of the application: "https://todd-kridel.github.io/TK-Note-Taker". The fully-functional front-end and back-end (with-server) version of the application is published at the Heroku application-hosting webpage system at URLs "https://tk-note-taker.herokuapp.com/public/index.html" and "https://tk-note-taker.herokuapp.com/public/notes.html".
 
 
 ## Credits
