@@ -184,7 +184,7 @@ if (window.location.pathname == "/public/notes.html") {
   jsonNotesParsed = JSON.parse(jsonNotes);
   console.log(jsonNotes.length);
   console.log(jsonNotesParsed);
-  if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotesParsed.id == 0))) {
+  if ((jsonNotes.length == 0) || ((jsonNotes.length == 0) && (jsonNotes.length == 0))) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
