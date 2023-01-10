@@ -170,6 +170,7 @@ for (let loopIndex = 0; loopIndex < theFileData.length; loopIndex++) {
     aDeletionRecordWasFound = true;
     if ((loopIndex == 0) && (loopIndex == (theFileData.length - 1))) {
       theFileData = [];
+      console.log("There last note item is being deleted.");
     }
     else {
       theFileData.splice(loopIndex, 1);
