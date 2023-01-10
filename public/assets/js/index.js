@@ -107,13 +107,11 @@ const handleNoteDelete = (e) => {
   if (activeNote.id == noteId) {
     if (noteListItems.length == 1) {
       console.log("BROWSER: The last note is being deleted and being replaced with a '0' ID.");
-      //activeNote = {};
-      //noteListItems = [];
       activeNote.id = 0;
       activeNote.noteTitle = "No saved notes.";
       activeNote.noteText = "";
       //noteListItems.pop();
-      console.log(noteListItems.length);
+      //console.log(noteListItems.length);
     }
     else {
       activeNote = {};
@@ -163,7 +161,7 @@ if (window.location.pathname == "/public/notes.html") {
     liElement.classList.add("list-group-item");
     const spanElement = document.createElement("span");
     spanElement.classList.add("list-item-title");
-    spanElement.innerHTML = text;
+    spanElement.textContent = text;
     spanElement.addEventListener("click", handleNoteView);
     liElement.append(spanElement);
     //
@@ -187,7 +185,6 @@ if (window.location.pathname == "/public/notes.html") {
   // Mark any empty note list.
   console.log(jsonNotes.length + " " + jsonNotes[0].id);
   if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
-    console.log("TEST");
     noteListItems.push(createLi("No saved notes.", false));
   }
   //
@@ -202,6 +199,10 @@ if (window.location.pathname == "/public/notes.html") {
         li.dataset.note = JSON.stringify(note);
         //console.log(li.dataset.note);
         noteListItems.push(li);
+      }
+      else {
+        activeNote.noteTitle = "No saved notes.";
+        activeNote.noteText = "";
       }
     });
     noteListItems.forEach((note) => noteList[0].append(note));
