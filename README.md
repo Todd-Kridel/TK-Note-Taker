@@ -62,7 +62,9 @@ To use this application/webpage...
 
 5. Enter some more notes.
 
-The following picture shows the appearance of the Note Taker application:
+The following pictures show the appearance of the Note Taker application title screen and main screen:
+
+![an example view of the appearance of the Note Taker application](./assets/images/Module_11_Mockup_.jpg)
 
 ![an example view of the appearance of the Note Taker application](./assets/images/Module_11_Mockup.jpg)
 
