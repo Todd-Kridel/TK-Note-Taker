@@ -184,15 +184,12 @@ if (window.location.pathname == "/public/notes.html") {
   //
   // Mark any empty note list.
   console.log(jsonNotes.length + " " + jsonNotes[0].id);
-  if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
+  if (jsonNotes.length == 0) {
     noteListItems.push(createLi("No saved notes.", false));
-    noteListItems[0].noteTitle = "No saved notes.";
-    activeNote.noteText = "";
   }
   if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
-    noteListItems.push(createLi("No saved notes.", false));
-    noteListItems[0].noteTitle = "No saved notes.";
-    activeNote.noteText = "";
+    jsonNotes[0].noteTitle = "No saved notes.";
+    jsonNotes[0].noteText = "";
   }
   //
   // Clear any existing note list.
