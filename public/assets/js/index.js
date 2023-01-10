@@ -187,10 +187,6 @@ if (window.location.pathname == "/public/notes.html") {
   if (jsonNotes.length == 0) {
     noteListItems.push(createLi("No saved notes.", false));
   }
-  // else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
-  //   jsonNotes[0].noteTitle = "No saved notes.";
-  //   jsonNotes[0].noteText = "";
-  // }
   //
   // Clear any existing note list.
   else if (jsonNotes.length > 0) {
@@ -203,6 +199,9 @@ if (window.location.pathname == "/public/notes.html") {
         li.dataset.note = JSON.stringify(note);
         //console.log(li.dataset.note);
         noteListItems.push(li);
+      }
+      else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
+        createLi("No saved notes.", false)
       }
     });
     noteListItems.forEach((note) => noteList[0].append(note));
