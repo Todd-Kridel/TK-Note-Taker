@@ -3,7 +3,7 @@
 
 ## Description
 
-This current Module 11 Challenge assignment -- a "Note Taker" application -- provided a good mechanism for learning introductory fully-functional API front-end-and-back-end integrated application programming. A large portion and effort of my personal assignment was for a significant attempt to consider about comprehensively assessing about the interconnections of the various systems and inputs and outputs; and the puzzle process of trying to interconnect in a functional way the new code with the provided starter code. The integrations of some additional supplemental imported systems was also involved.
+This current Module 11 Challenge assignment -- a "Note Taker" application -- provided a good mechanism for learning introductory fully-functional API front-end-and-back-end integrated application programming. A large portion and effort of my personal assignment was for a significant attempt to consider about comprehensively assessing about the interconnections of the various systems and inputs and outputs; and the puzzle process of trying to interconnect in a functional way the new code with the provided starter code. The integrations of some additional supplemental imported systems was also involved. Lastly...the new concept and practice and requirement of publishing the finished multiple-part system to an application-hosting website was involved and it required a separate learning requirement and procedural practicing and a methodology developing.
 
 ----
 
