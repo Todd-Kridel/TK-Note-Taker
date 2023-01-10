@@ -184,12 +184,7 @@ if (window.location.pathname == "/public/notes.html") {
   //
   // Mark any empty note list.
   //console.log(jsonNotes.length);
-  if (jsonNotes.length == 0) {
-    noteListItems.push(createLi("No saved Notes", false));
-  }
-  //
-  else if (jsonNotes[0].id == 0) {
-    //console.log("TEST");
+  if ((jsonNotes.length == 0) && ((jsonNotes.length == 1) && (jsonNotes.id == 0))) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
@@ -199,10 +194,12 @@ if (window.location.pathname == "/public/notes.html") {
     //
     // Display the updated/current note list.
     jsonNotes.forEach((note) => {
-      const li = createLi(note.noteTitle);
-      li.dataset.note = JSON.stringify(note);
-      //console.log(li.dataset.note);
-      noteListItems.push(li);
+      if (note.id != 0) {
+        const li = createLi(note.noteTitle);
+        li.dataset.note = JSON.stringify(note);
+        //console.log(li.dataset.note);
+        noteListItems.push(li);
+      }
     });
     noteListItems.forEach((note) => noteList[0].append(note));
   }
