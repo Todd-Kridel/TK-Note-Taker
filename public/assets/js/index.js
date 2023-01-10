@@ -94,7 +94,7 @@ const handleNoteSave = () => {
   });
 };
 
-// Delete the clicked note.
+// Delete the note that had its trashcan icon be clicked.
 const handleNoteDelete = (e) => {
   // Prevent the click listener for the list from being called when the button inside of it is 
   // clicked.
@@ -181,7 +181,7 @@ if (window.location.pathname == "/public/notes.html") {
   noteListItems = [];
   //
   // Mark any empty note list.
-  if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && (jsonNotes[0].id == 0))) {
+  if ((jsonNotes.length == 0) || ((jsonNotes.length == 1) && ((JSON.parse(jsonNotes))[0].id == 0))) {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
