@@ -126,19 +126,19 @@ app.get("*", (req, res) => {
 // POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 // POST request to add a review
 app.post("/api/notes", (req, res) => {
-  console.info(`${req.method} request received to add a note`);
+  //console.info(`${req.method} request received to add a note`);
 
   newNoteData.id = (lastNoteID + 1);
   newNoteData.noteTitle  = req.body.noteTitle;
   newNoteData.noteText = req.body.noteText
 
-  console.log("ID: " + newNoteData.id + "; noteTitle: " + newNoteData.noteTitle + 
-    "; noteText: " + newNoteData.noteText);
+  //console.log("ID: " + newNoteData.id + "; noteTitle: " + newNoteData.noteTitle + 
+  //  "; noteText: " + newNoteData.noteText);
 
   theFileData.push(newNoteData);
   doWriteToTheDBFile();
-  console.log(`The new note \"${newNoteData.title}\"` + 
-    ` has been written to the Note database JSON file.`);
+  //console.log(`The new note \"${newNoteData.title}\"` + 
+  //  ` has been written to the Note database JSON file.`);
   res.json(newNoteData);
 });
 
@@ -159,18 +159,18 @@ let deleteNoteID = req.params.id;
 let aDeletionRecordWasFound = false;
 let deletionNote;
 let deletionNoteJSON;
-console.log("deleteNoteID: " + deleteNoteID);
+//console.log("deleteNoteID: " + deleteNoteID);
 for (let loopIndex = 0; loopIndex < theFileData.length; loopIndex++) {
   //console.log("data ID test: " + theFileData[loopIndex].id);
   if (theFileData[loopIndex].id == deleteNoteID) {
     deletionNote = JSON.stringify(theFileData[loopIndex]);
     deletionNoteJSON = theFileData[loopIndex];
-    console.log("The indicated deletion record was found and deleted (ID = " + 
-      deleteNoteID + ")." + "\n" + deletionNote);
+    //console.log("The indicated deletion record was found and deleted (ID = " + 
+    //  deleteNoteID + ")." + "\n" + deletionNote);
     aDeletionRecordWasFound = true;
     if ((loopIndex == 0) && (loopIndex == (theFileData.length - 1))) {
       theFileData[0] = {"id": 0, "noteTitle": "", "noteText": ""};
-      console.log("SERVER: The last note is being deleted and being replaced with a '0' ID.");
+    //  console.log("SERVER: The last note is being deleted and being replaced with a '0' ID.");
     }
     else {
       theFileData.splice(loopIndex, 1);
@@ -204,7 +204,7 @@ function doReadFromTheDBFile() {
 // synchronous option
 theFileData = JSON.parse(fs.readFileSync("./db/db.json"));
 lastNoteID = ((theFileData[(theFileData.length) - 1].id));
-console.log("Note data has been read from the Note database JSON file.");
+//console.log("Note data has been read from the Note database JSON file.");
 
 // asynchronous option
 // fs.readFile("./db/db.json", "utf-8", function (err, data) {
@@ -228,7 +228,7 @@ function doWriteToTheDBFile() {
 // synchronous option
 fs.writeFileSync("./db/db.json", JSON.stringify(theFileData));
 lastNoteID = ((theFileData[(theFileData.length) - 1].id));
-console.log("The Note database JSON file has been updated.");
+//console.log("The Note database JSON file has been updated.");
 
 // asynchronous option
 // fs.writeFile("./db/db.json", JSON.stringify(theFileData), function (err, data) {

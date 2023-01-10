@@ -1,4 +1,6 @@
 
+
+// Instantiate the main variables.
 let noteTitle;
 let noteText;
 let saveNoteButton;
@@ -6,6 +8,8 @@ let newNoteButton;
 let noteList;
 let noteListItems;
 
+
+// Identify and associate the webpage elements that are necessary for program functionality.
 if (window.location.pathname == "/public/notes.html") {
   noteTitle = document.querySelector(".note-title");
   noteText = document.querySelector(".note-textarea");
@@ -14,19 +18,24 @@ if (window.location.pathname == "/public/notes.html") {
   noteList = document.querySelectorAll(".list-container .list-group");
 }
 
-// Show an element.
+
+// Allow for webpage elements to be displayed/shown depending on current status.
 const show = (element) => {
   element.style.display = "inline";
 };
 
-// Hide an element.
+
+// Allow for webpage elements to be hidden depending on current status.
 const hide = (element) => {
   element.style.display = "none";
 };
 
-// The "activeNote" variable is used to keep track of the note in the textarea.
+
+// Instantiate the "activeNote" variable that is used to keep track of the note in the text-area.
 let activeNote = {};
 
+
+// Establish the to-server fetch transmission that is for getting/retrieving note records.
 const getNotes = () => {
   fetch("/api/notes", {
      method: "GET",
@@ -35,11 +44,11 @@ const getNotes = () => {
      },
     }).then(function (response) {
       if (response.status == 400) {
-        console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS." + "\n" +  
-          "RELATED INFORMATION (IF ANY): " + response.status + "\n");
-          console.log(response);
-          // If a fetch/response error occurs...then do not do the data parsing process.
-          return;
+        //console.log("ERROR: NON-SUCCESSFUL API FETCH-RESPONSE PROCESS." + "\n" +  
+        //  "RELATED INFORMATION (IF ANY): " + response.status + "\n");
+        //console.log(response);
+        // If a fetch/response error occurs...then do not do the data parsing process.
+        return;
       }
       return response.json();
   }) .then(function(data) {
@@ -48,6 +57,8 @@ const getNotes = () => {
   });
  }
 
+
+// Establish the to-server fetch transmission that is for posting/adding note records.
 const saveNote = (note) =>
   fetch("/api/notes", {
     method: "POST",
@@ -57,6 +68,8 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
+
+// Establish the to-server fetch transmission that is for deleting note records.
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: "DELETE",
@@ -65,6 +78,8 @@ const deleteNote = (id) =>
     },
   });
 
+
+// Process for the current active-focus note.
 const renderActiveNote = () => {
   hide(saveNoteButton);
   if (activeNote.id) {
@@ -80,6 +95,7 @@ const renderActiveNote = () => {
   }
 };
 
+// Process for saving the current entered note (at least a title or at least a note body).
 const handleNoteSave = () => {
   if (noteTitle.value == "") {
     noteTitle.value = "( NO TITLE )";
@@ -94,19 +110,20 @@ const handleNoteSave = () => {
   });
 };
 
+
 // Delete the note that had its trashcan icon be clicked.
 const handleNoteDelete = (e) => {
   // Prevent the click listener for the list from being called when the button inside of it is 
   // clicked.
   e.stopPropagation();
   const note = e.target;
-  console.log(activeNote);
+  //console.log(activeNote);
   activeNote = JSON.parse((note.parentElement).getAttribute("data-note"));
   const noteId = JSON.parse((note.parentElement).getAttribute("data-note")).id;
-  console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
+  //console.log("activeNote.id: " + activeNote.id + "; noteId: " + noteId);
   if (activeNote.id == noteId) {
     if (noteListItems.length == 1) {
-      console.log("BROWSER: The last note is being deleted and being replaced with a '0' ID.");
+      //console.log("BROWSER: The last note is being deleted and being replaced with a '0' ID.");
       activeNote.id = 0;
       activeNote.noteTitle = "No saved notes.";
       activeNote.noteText = "";
@@ -123,16 +140,18 @@ const handleNoteDelete = (e) => {
   });
 };
 
+
 // Set the "activeNote" variable and display it.
 const handleNoteView = (e) => {
   const note = e.target;
   e.preventDefault();
   //console.log(note);
   activeNote = JSON.parse((note.parentElement).getAttribute("data-note"));
-  console.log("activeNote.id: " + activeNote.id);
-  console.log(activeNote);
+  //console.log("activeNote.id: " + activeNote.id);
+  //console.log(activeNote);
   renderActiveNote();
 };
+
 
 // Set the "activeNote" variable to an empty object and allows the user to enter a new note.
 const handleNewNoteView = (e) => {
@@ -140,6 +159,8 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
+
+// Additionally process the display aspects of the "Save" button depending on current status.
 const handleRenderSaveButton = () => {
   if (((noteTitle.value.trim()) == "") && ((noteText.value.trim() == ""))) {
     hide(saveNoteButton);
@@ -148,12 +169,13 @@ const handleRenderSaveButton = () => {
   }
 };
 
+
 // Render the list of note titles.
 async function renderNoteList(notes) {
 let jsonNotes = await (notes);
 //console.log(window.location.pathname);
 if (window.location.pathname == "/public/notes.html") {
-  console.log(jsonNotes);
+  //console.log(jsonNotes);
   //
   // a sub-function that returns a note HTML list-item element with or without a delete button
   function createLi(text, deleteButton = true) {
@@ -185,7 +207,7 @@ if (window.location.pathname == "/public/notes.html") {
   noteListItems = [];
   //
   // Mark any empty note list.
-  console.log(jsonNotes.length + " " + jsonNotes[0].id);
+  //console.log(jsonNotes.length + " " + jsonNotes[0].id);
   if (jsonNotes.length == 0) {
     noteListItems.push(createLi("No saved notes.", false));
   }
@@ -212,7 +234,7 @@ if (window.location.pathname == "/public/notes.html") {
   //
 }
 }
-
+// Activate the main event listeners/handlers for establishing automatic functionality.
 if (window.location.pathname == "/public/notes.html") {
   saveNoteButton.addEventListener("click", handleNoteSave);
   newNoteButton.addEventListener("click", handleNewNoteView);
@@ -220,4 +242,7 @@ if (window.location.pathname == "/public/notes.html") {
   noteText.addEventListener("keyup", handleRenderSaveButton);
 }
 
+
+// Load and render the starting note list (if any) or the starting empty-list placeholder.
 getNotes();
+
