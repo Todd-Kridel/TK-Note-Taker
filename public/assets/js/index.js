@@ -82,7 +82,7 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   if (noteTitle.value == "") {
-    noteTitle.value = "<NO TITLE>";
+    noteTitle.value = "( NO TITLE )";
   }
   const newNote = {
     noteTitle: noteTitle.value,
