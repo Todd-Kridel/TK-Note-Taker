@@ -181,7 +181,7 @@ if (window.location.pathname == "/public/notes.html") {
   noteListItems = [];
   //
   // Mark any empty note list.
-  jsonNotesParsed = JSON.parse(jsonNotes);
+  jsonNotesParsed = await JSON.parse(jsonNotes);
   console.log(jsonNotes.length);
   console.log(jsonNotesParsed);
   if ((jsonNotes.length == 0) || ((jsonNotes.length == 0) && (jsonNotes.length == 0))) {
