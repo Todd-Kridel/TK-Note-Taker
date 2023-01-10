@@ -188,8 +188,8 @@ if (window.location.pathname == "/public/notes.html") {
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
-  else if ((jsonNotes.length == 1) && (jsonNotes[0].id == 0)) {
-    console.log("TEST");
+  else if (jsonNotes[0].id == 0) {
+    //console.log("TEST");
     noteListItems.push(createLi("No saved Notes", false));
   }
   //
